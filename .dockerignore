@@ -1,0 +1,11 @@
+# general
+docker-compose.yml
+PROJECT.md
+README.md
+
+# node app
+app/node_modules/
+app/Dockerfile
+
+# dns
+unbound/Dockerfile
