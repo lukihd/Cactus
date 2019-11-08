@@ -6,6 +6,6 @@ EXPOSE 51 51/udp
 RUN apk update && apk add unbound --no-cache
 # copy unbound local configuration file
 COPY ./unbound.conf /etc/unbound/unbound.conf
-# launch unbound with his configuration file
+# launch unbound with his configuration file 
 ENTRYPOINT [ "unbound" ]
 CMD [ "-c", "/etc/unbound/unbound.conf"]
