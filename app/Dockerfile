@@ -10,6 +10,6 @@ COPY ./package*.json /app/
 RUN npm install
 # copy full app
 COPY . /app/
-# launch app with nodemon on debug mode
+# launch app with nodemon on debug mode 
 ENTRYPOINT [ "npm" ]
 CMD [ "run", "debug" ]
