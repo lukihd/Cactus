@@ -1,3 +1,31 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+.btn, input {
+  box-shadow: none !important;
+}
+
+/* HOME DISCONNECTED */
+
+.form-signin {
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+#inputEmail {
+  font-size: large;
+  margin-top: 30px;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#inputPassword {
+  font-size: large;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
