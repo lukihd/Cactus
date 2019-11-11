@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Cactus Home' });
+  res.render('signup', {title: "Cactus Signup"});
 });
 
 module.exports = router;

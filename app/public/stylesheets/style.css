@@ -4,13 +4,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.btn, input {
+.btn, input, select {
   box-shadow: none !important;
 }
 
-/* HOME / LOGIN */
+/* HOME / SIGN IN */
 
-.form-signin {
+#home-form-signin {
   width: 100%;
   max-width: 350px;
   padding: 15px;
@@ -20,13 +20,96 @@ body {
 #home-input-email {
   font-size: large;
   margin-top: 30px;
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  margin-bottom: 1rem;
 }
 
 #home-input-password {
   font-size: large;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+}
+
+/* SIGN UP */
+
+#signup-form-signup {
+  width: 100%;
+  max-width: 650px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.signup-form-inline {
+  width: 90%;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#signup-group-input-lastname {
+  width: 49%;
+  margin-right: 2%;
+}
+
+#signup-group-input-lastname > input {
+  font-size: large;
+}
+
+#signup-group-input-firstname {
+  width: 49%;
+}
+
+#signup-group-input-firstname > input {
+  font-size: large;
+}
+
+#signup-group-input-email {
+  width: 49%;
+  margin-right: 2%;
+}
+
+#signup-group-input-email > input {
+  font-size: large;
+}
+
+#signup-group-input-email-confirmation {
+  width: 49%;
+}
+
+#signup-group-input-email-confirmation > input {
+  font-size: large;
+}
+
+#signup-group-input-password {
+  width: 49%;
+  margin-right: 2%;
+}
+
+#signup-group-input-password > input {
+  font-size: large;
+}
+
+#signup-group-input-password-confirmation {
+  width: 49%;
+}
+
+#signup-group-input-password-confirmation > input {
+  font-size: large;
+}
+
+#signup-group-input-birthdate {
+  width: 49%;
+  margin-right: 2%;
+}
+
+#signup-group-input-birthdate > input {
+  font-size: large;
+}
+
+#signup-group-input-gender {
+  width: 49%;
+}
+
+#signup-group-input-gender > select {
+  font-size: large;
 }
