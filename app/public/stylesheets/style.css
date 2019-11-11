@@ -1,3 +1,5 @@
+/* GENERAL */
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -6,7 +8,7 @@ body {
   box-shadow: none !important;
 }
 
-/* HOME DISCONNECTED */
+/* HOME / LOGIN */
 
 .form-signin {
   width: 100%;
@@ -15,7 +17,7 @@ body {
   margin: 0 auto;
 }
 
-#inputEmail {
+#home-input-email {
   font-size: large;
   margin-top: 30px;
   margin-bottom: -1px;
@@ -23,9 +25,8 @@ body {
   border-bottom-left-radius: 0;
 }
 
-#inputPassword {
+#home-input-password {
   font-size: large;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-
