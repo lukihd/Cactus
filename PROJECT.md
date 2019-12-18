@@ -61,7 +61,6 @@ Caractéristique :
 - Durée
   - Date définie (le 15/06 à 20h ou simplement la date du jour)
   - Date de début / fin (exemple : le 19/02 à 7h jusqu’au 22/02 à 15h)
-  - durée approximative (exemple : pendant 30 minutes)
 - Importance
   - Urgent
   - Haute

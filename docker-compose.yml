@@ -44,10 +44,8 @@ services:
 
 networks:
   frontend:
-    external: true
   backend:
 
 volumes:
-  traefik:  
   app:
   data:

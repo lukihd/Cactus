@@ -113,3 +113,18 @@ body {
 #signup-group-input-gender > select {
   font-size: large;
 }
+
+/* CALENDAR */
+
+.center-title{
+  line-height: 1.5 !important ;
+}
+
+#calendar-table-border {
+  border: none;
+  margin-top: 50px;
+}
+
+thead {
+  text-align: center;
+}
