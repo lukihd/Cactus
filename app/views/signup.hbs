@@ -1,60 +1,60 @@
 <form id="signup-form-signup" class="text-center mt-5" method="POST" action="">
-    <img class="mb-4" src="/images/logo.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Heureux de vous nous<br class="mb-1">ayez choisis !</h1>
-    <div class="signup-form-inline">
-    {{!-- Lastname --}}
-        <div id="signup-group-input-lastname" class="form-group">
-            <label for="signup-input-lastname" class="sr-only">Nom</label>
-            <input type="text" name="lastname" id="signup-input-lastname" class="form-control" placeholder="Nom" required autofocus>
-        </div>
-    {{!-- Firstname --}}
-        <div id="signup-group-input-firstname" class="form-group">
-            <label for="signup-input-firstname" class="sr-only">Prénom</label>
-            <input type="text" name="firstname" id="signup-input-firstname" class="form-control" placeholder="Prénom" required>
-        </div>
+  <img class="mb-4" src="/images/logo.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Heureux de vous nous<br class="mb-1">ayez choisis !</h1>
+  {{> messages}}
+  <div class="signup-form-inline">
+  {{!-- Lastname --}}
+    <div id="signup-group-input-lastname" class="form-group">
+      <label for="signup-input-lastname" class="sr-only">Nom</label>
+      <input type="text" name="lastname" id="signup-input-lastname" class="form-control" placeholder="Nom" value="{{#if lastname}}{{lastname}}{{/if}}" required autofocus>
     </div>
-    <div class="signup-form-inline">
-    {{!-- Birthdate --}}
-        <div id="signup-group-input-birthdate" class="form-group">
-            <label for="signup-input-birthdate" class="sr-only">Date de naissance</label>
-            <input type="date" id="signup-input-birthdate" class="form-control" placeholder="Date de naissance" required>
-        </div>
-    {{!-- Gender --}}
-        <div id="signup-group-input-gender" class="form-group">
-            <label for="signup-input-gender" class="sr-only">Civilité :</label>
-            <select class="custom-select" id="signup-input-gender" class="form-control" required>
-                <option selected>Sélectionez une option</option>
-                <option>Madame</option>
-                <option>Monsieur</option>
-                <option>Non spécifié</option>
-            </select>
-        </div>
+  {{!-- Firstname --}}
+    <div id="signup-group-input-firstname" class="form-group">
+      <label for="signup-input-firstname" class="sr-only">Prénom</label>
+      <input type="text" name="firstname" id="signup-input-firstname" class="form-control" placeholder="Prénom" value="{{#if firstname}}{{firstname}}{{/if}}" required>
     </div>
-    <div class="signup-form-inline">
-    {{!-- Email --}}
-        <div id="signup-group-input-email" class="form-group">
-            <label for="signup-input-email" class="sr-only">Email</label>
-            <input type="email" id="signup-input-email" class="form-control" placeholder="Email" required>   
-        </div>
-    {{!-- Confirmation --}}
-        <div id="signup-group-input-email-confirmation" class="form-group">
-            <label for="signup-input-email-confirmation" class="sr-only">Email</label>
-            <input type="email" id="signup-input-email-confirmation" class="form-control" placeholder="Confirmez l'email" required>
-        </div>
+  </div>
+  <div class="signup-form-inline">
+  {{!-- Birthdate --}}
+    <div id="signup-group-input-birthdate" class="form-group">
+      <label for="signup-input-birthdate" class="sr-only">Date de naissance</label>
+      <input type="date" name="birthdate" id="signup-input-birthdate" class="form-control" placeholder="Date de naissance" value="{{#if birthdate}}{{birthdate}}{{/if}}" required>
     </div>
-    <div class="signup-form-inline">
-    {{!-- Password --}}
-        <div id="signup-group-input-password" class="form-group">
-            <label for="signup-input-password" class="sr-only">Mot de passe</label>
-            <input type="password" id="signup-input-password" class="form-control" placeholder="Mot de passe" required>   
-        </div>
-    {{!-- Confirmation --}}
-        <div id="signup-group-input-password-confirmation" class="form-group">
-            <label for="signup-input-password-confirmation" class="sr-only">Confirmez le mot de passe</label>
-            <input type="password" id="signup-input-password-confirmation" class="form-control" placeholder="Confirmez le mot de passe" required>
-        </div>
+  {{!-- Gender --}}
+    <div id="signup-group-input-gender" class="form-group">
+      <label for="signup-input-gender" class="sr-only">Civilité :</label>
+      <select name="gender" id="signup-input-gender" class="custom-select form-control" required>
+        <option>Sélectionez une option</option>
+        <option value="woman">Madame</option>
+        <option value="man">Monsieur</option>
+      </select>
     </div>
-    <hr>
-    <a name="Se connecter" id="signin" class="btn btn-lg" href="/" role="button">Se connecter</a>
-    <button type="submit" name="signup" id="signup-btn-signup" class="btn btn-success btn-lg">S'inscrire</button>
+  </div>
+  <div class="signup-form-inline">
+  {{!-- Email --}}
+    <div id="signup-group-input-email" class="form-group">
+      <label for="signup-input-email" class="sr-only">Email</label>
+      <input type="email" name="email" id="signup-input-email" class="form-control" placeholder="Email" value="{{#if email}}{{email}}{{/if}}" required>   
+    </div>
+  {{!-- Confirmation --}}
+    <div id="signup-group-input-email-confirmation" class="form-group">
+      <label for="signup-input-email-confirmation" class="sr-only">Email</label>
+      <input type="email" name="emailConfirmation" id="signup-input-email-confirmation" class="form-control" placeholder="Confirmez l'email" value="{{#if emailConfirmation}}{{emailConfirmation}}{{/if}}" required>
+    </div>
+  </div>
+  <div class="signup-form-inline">
+  {{!-- Password --}}
+    <div id="signup-group-input-password" class="form-group">
+      <label for="signup-input-password" class="sr-only">Mot de passe</label>
+      <input type="password" name="password" id="signup-input-password" class="form-control" placeholder="Mot de passe" required>   
+    </div>
+  {{!-- Confirmation --}}
+    <div id="signup-group-input-password-confirmation" class="form-group">
+      <label for="signup-input-password-confirmation" class="sr-only">Confirmez le mot de passe</label>
+      <input type="password" name="passwordConfirmation" id="signup-input-password-confirmation" class="form-control" placeholder="Confirmez le mot de passe" required>
+    </div>
+  </div>
+  <hr>
+  <a name="Se connecter" id="signin" class="btn btn-lg" href="/" role="button">Se connecter</a>
+  <button type="submit" id="signup-btn-signup" class="btn btn-success btn-lg">S'inscrire</button>
 </form>

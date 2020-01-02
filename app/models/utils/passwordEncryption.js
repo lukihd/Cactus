@@ -31,8 +31,9 @@ module.exports = {
      * @param {string} password - User password to hash
      */
     genSaltHash: (password) => {
-        let salt = module.exports.genSalt(32)
-        let passwordInfo = module.exports.genSha512(password, salt)
-        return passwordInfo
+        let passInfo = {}
+        passInfo.salt = module.exports.genSalt(32)
+        passInfo.hash = module.exports.genSha512(password, passInfo.salt)
+        return passInfo
     }
 }

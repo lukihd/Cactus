@@ -1,20 +1,33 @@
-// const User = require('../schema/user')
-let PasswordEncryption = require('./passwordEncryption')
+const passwordEncryption = require('./utils/passwordEncryption')
+let User = require('../schema/user')
 
 module.exports = {
-    createUser: async (params) => {
-        console.log('hrrlo')
-        console.log(params)
-        console.log(PasswordEncryption.genSaltHash(params.password))
-        // // creating user
-        // let newUser = new User({
-        //     firstname: params.firstname,
-        //     lastname: params.lastname,
-        //     gender: params.gender,
-        //     birth: params.birth,
-        //     email: params.email,
-        //     password: hash,
-        //     salt: salt
-        // })        
-    }
+  formatUserInfo: (params) => {
+    let userInfo = {}
+    // format lastname
+    userInfo.lastname = params.lastname.toLowerCase()
+    // format firstname
+    userInfo.firstname = params.firstname.toLowerCase()
+    // hash password
+    passInfo = passwordEncryption.genSaltHash(params.password)
+    userInfo.hash = passInfo.hash
+    userInfo.salt = passInfo.salt
+
+    return userInfo
+  },
+
+  createUser: async (params) => {
+    let userInfo = module.exports.formatUserInfo(params)
+    // create user
+    let newUser = new User({
+      firstname: userInfo.firstname,
+      lastname: userInfo.lastname,
+      gender: params.gender,
+      birth: params.birthdate,
+      email: params.email,
+      password: userInfo.hash,
+      salt: userInfo.salt
+    })
+    return newUser.save()
+  }
 }

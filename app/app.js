@@ -4,6 +4,9 @@ const expressHbs = require('express-handlebars');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
+const session = require('express-session')
 
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
@@ -12,14 +15,38 @@ const calendarRouter = require('./routes/calendar');
 
 let app = express();
 
+// mongoose connection
+mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => console.log("Connection to mongodb established"))
+  .catch((err) => console.log("Error : " + err));
+
+// express session
+app.use(session({
+  cookie: {secure: true},
+  resave: false,
+  saveUninitialized: false,
+  secret: "PyzD71MHh7unBTQAaqa2psDfWKdErpgCuoQmYgrKqsOgi4HzkK5KEnMA6guLPdytSgkAgTG8ZOPoBYiYG2ttAdULpop7RbP7rQDuCl9wSHohaX2uMbXWeWhQYNXlJIULZfR8e3sVToeQFgmcDLM7PeW85drqpq1U3w1J179IcUfkpqg15kxaITTYq3VrbzUq0PRqnfEIK07xymT5il8bN0M1wnfq1ZWku5P1c46ODFheq2y28ZJDdVdpAC9MT0K1"
+}))
+
+// flash
+app.use(flash())
+
+// global vars
+app.use((req, res, next) => {
+  res.locals.success_signup = req.flash('success_message')
+  res.locals.error_signup = req.flash('error_message')
+  next()
+})
+
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
+
+// body parser
+app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
