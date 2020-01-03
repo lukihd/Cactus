@@ -10,7 +10,6 @@ const passport = require('passport')
 
 // routes
 const indexRouter = require('./routes/index');
-const signupRouter = require('./routes/signup');
 const userRouter = require('./routes/user');
 const calendarRouter = require('./routes/calendar');
 
@@ -43,8 +42,8 @@ app.use(passport.session())
 
 // global vars
 app.use((req, res, next) => {
-  res.locals.success_signup = req.flash('success_signup_message')
-  res.locals.error_signup = req.flash('error_signup_message')
+  res.locals.success_message = req.flash('success_message')
+  res.locals.error_message = req.flash('error_message')
   res.locals.error = req.flash('error')
   next()
 })
@@ -61,7 +60,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/signup', signupRouter)
 app.use('/user', userRouter);
 app.use('/calendar', calendarRouter)
 

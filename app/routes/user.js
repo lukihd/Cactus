@@ -1,9 +1,14 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+const { ensureAuthenticated } = require('../config/auth')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', ensureAuthenticated, (req, res, next) => {  
+  res.render('user', {
+    title: 'Cactus Profile',
+    layout: 'session',
+    lastname: req.user.lastname,
+    firstname: req.user.firstname
+  }); 
 });
 
 module.exports = router;
