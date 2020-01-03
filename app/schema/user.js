@@ -9,7 +9,6 @@ let UserSchema = new Schema({
     birth: {type: Date, required: true},
     email: {type: String, required: true, max: 100},
     password: {type: String, required: true, max: 256},
-    salt: {type: String, required: true}
 });
 
 

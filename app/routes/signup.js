@@ -47,7 +47,7 @@ router.post('/', (req, res, next) => {
           .then(() => {
             res.format({
               html: () => {
-                req.flash('success_message', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
+                req.flash('success_signup_message', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
                 res.redirect('/')
               },
               json: () => {res.status(201).send({message: 'success'})}  

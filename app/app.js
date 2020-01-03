@@ -2,18 +2,22 @@ const createError = require('http-errors');
 const express = require('express');
 const expressHbs = require('express-handlebars');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session')
+const passport = require('passport')
 
+// routes
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
 const usersRouter = require('./routes/users');
 const calendarRouter = require('./routes/calendar');
 
 let app = express();
+
+// passport config
+require('./config/passport')(passport)
 
 // mongoose connection
 mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true, useUnifiedTopology: true})
@@ -28,13 +32,18 @@ app.use(session({
   secret: "PyzD71MHh7unBTQAaqa2psDfWKdErpgCuoQmYgrKqsOgi4HzkK5KEnMA6guLPdytSgkAgTG8ZOPoBYiYG2ttAdULpop7RbP7rQDuCl9wSHohaX2uMbXWeWhQYNXlJIULZfR8e3sVToeQFgmcDLM7PeW85drqpq1U3w1J179IcUfkpqg15kxaITTYq3VrbzUq0PRqnfEIK07xymT5il8bN0M1wnfq1ZWku5P1c46ODFheq2y28ZJDdVdpAC9MT0K1"
 }))
 
+// passport
+app.use(passport.initialize())
+app.use(passport.session())
+
 // flash
 app.use(flash())
 
 // global vars
 app.use((req, res, next) => {
-  res.locals.success_signup = req.flash('success_message')
-  res.locals.error_signup = req.flash('error_message')
+  res.locals.success_signup = req.flash('success_signup_message')
+  res.locals.error_signup = req.flash('error_signup_message')
+  res.locals.error = req.flash('error')
   next()
 })
 
