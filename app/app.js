@@ -26,18 +26,20 @@ mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true
 
 // express session
 app.use(session({
-  cookie: {secure: true},
+  // make cookie true if had an https connection only
+  cookie: {secure: false},
   resave: false,
   saveUninitialized: false,
   secret: "PyzD71MHh7unBTQAaqa2psDfWKdErpgCuoQmYgrKqsOgi4HzkK5KEnMA6guLPdytSgkAgTG8ZOPoBYiYG2ttAdULpop7RbP7rQDuCl9wSHohaX2uMbXWeWhQYNXlJIULZfR8e3sVToeQFgmcDLM7PeW85drqpq1U3w1J179IcUfkpqg15kxaITTYq3VrbzUq0PRqnfEIK07xymT5il8bN0M1wnfq1ZWku5P1c46ODFheq2y28ZJDdVdpAC9MT0K1"
 }))
 
+// flash
+app.use(flash())
+
 // passport
 app.use(passport.initialize())
 app.use(passport.session())
 
-// flash
-app.use(flash())
 
 // global vars
 app.use((req, res, next) => {

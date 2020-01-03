@@ -3,7 +3,7 @@ const passport = require('passport')
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Cactus Home' });
+  res.render('index', { title: 'Cactus Home'});
 });
 
 router.post('/', (req, res, next) => {

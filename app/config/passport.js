@@ -11,14 +11,15 @@ module.exports= (passport) => {
       User.findOne({email: email})
         .then((user) => {
           if (!user)
-            return done(null, false, {message: 'le mot de passe ou l\'adresse email ne correspondent pas'})
+            return done(null, false, { message: 'le mot de passe ou l\'adresse email ne correspondent pas'})
            // Match password
           bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) throw err
             if (isMatch)
               return done(null, user)
-            else
-              return done(null, false, {message: 'le mot de passe ou l\'adresse email ne correspondent pas'})
+            else {
+              return done(null, false, { message: 'le mot de passe ou l\'adresse email ne correspondent pas'})
+            }
           })
         })
         .catch((err)=>{
