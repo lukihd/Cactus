@@ -11,7 +11,7 @@ const passport = require('passport')
 // routes
 const indexRouter = require('./routes/index');
 const signupRouter = require('./routes/signup');
-const usersRouter = require('./routes/users');
+const userRouter = require('./routes/user');
 const calendarRouter = require('./routes/calendar');
 
 let app = express();
@@ -62,7 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/signup', signupRouter)
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/calendar', calendarRouter)
 
 // catch 404 and forward to error handler
