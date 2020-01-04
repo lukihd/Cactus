@@ -26,6 +26,7 @@ router.get('/signup', ensureUnauthenticated, function(req, res, next) {
 
 /* POST signup */
 router.post('/signup', ensureUnauthenticated, (req, res, next) => {
+
   let {lastname, firstname, birthdate, gender, email, emailConfirmation} = req.body
 
   // handling form errors
@@ -63,7 +64,7 @@ router.post('/signup', ensureUnauthenticated, (req, res, next) => {
           .then(() => {
             res.format({
               html: () => {
-                req.flash('success_signup_message', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
+                req.flash('success_message', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
                 res.redirect('/')
               },
               json: () => {res.status(201).send({message: 'success'})}  

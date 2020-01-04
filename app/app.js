@@ -1,6 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const expressHbs = require('express-handlebars');
+const methodOverride = require('method-override')
 const path = require('path');
 const logger = require('morgan');
 const mongoose = require('mongoose');
@@ -22,6 +23,7 @@ require('./config/passport')(passport)
 mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log("Connection to mongodb established"))
   .catch((err) => console.log("Error : " + err));
+mongoose.set('useFindAndModify', false);
 
 // express session
 app.use(session({
@@ -58,6 +60,7 @@ app.use(express.json());
 // body parser
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);

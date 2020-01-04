@@ -8,6 +8,11 @@ body {
   box-shadow: none !important;
 }
 
+/* vertical row right */
+.vrr {
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+
 /* HOME / SIGN IN */
 
 #home-form-signin {
@@ -29,15 +34,19 @@ body {
 
 /* SIGN UP */
 
+.form-group-signup {
+  margin-bottom: 1rem !important;
+}
+
 #signup-form-signup {
   width: 100%;
-  max-width: 650px;
+  max-width: 700px;
   padding: 15px;
   margin: 0 auto;
 }
 
 .signup-form-inline {
-  width: 90%;
+  width: 100%;
   display: -ms-flexbox;
   display: inline-flex;
   -ms-flex-flow: row wrap;
@@ -46,71 +55,33 @@ body {
   align-items: center;
 }
 
-#signup-group-input-lastname {
-  width: 49%;
-  margin-right: 2%;
+.signup-group-input-left {
+  width: 45%;
+  margin-right: 5%;
 }
 
-#signup-group-input-lastname > input {
+.signup-group-input-left > label {
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-left: 4%;
+}
+
+.signup-group-input-left > input {
   font-size: large;
 }
 
-#signup-group-input-firstname {
-  width: 49%;
+.signup-group-input-right {
+  width: 45%;
+  margin-left: 5%;
 }
 
-#signup-group-input-firstname > input {
-  font-size: large;
+.signup-group-input-right > label {
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-left: 4%;
 }
 
-#signup-group-input-email {
-  width: 49%;
-  margin-right: 2%;
-}
-
-#signup-group-input-email > input {
-  font-size: large;
-}
-
-#signup-group-input-email-confirmation {
-  width: 49%;
-}
-
-#signup-group-input-email-confirmation > input {
-  font-size: large;
-}
-
-#signup-group-input-password {
-  width: 49%;
-  margin-right: 2%;
-}
-
-#signup-group-input-password > input {
-  font-size: large;
-}
-
-#signup-group-input-password-confirmation {
-  width: 49%;
-}
-
-#signup-group-input-password-confirmation > input {
-  font-size: large;
-}
-
-#signup-group-input-birthdate {
-  width: 49%;
-  margin-right: 2%;
-}
-
-#signup-group-input-birthdate > input {
-  font-size: large;
-}
-
-#signup-group-input-gender {
-  width: 49%;
-}
-
-#signup-group-input-gender > select {
+.signup-group-input-right > input {
   font-size: large;
 }
 

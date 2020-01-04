@@ -1,5 +1,3 @@
-const User = require('../../schema/user')
-
 module.exports = {
   /**
    * Format signup entry for database
@@ -8,10 +6,20 @@ module.exports = {
    */
   signupHandler: (params) => {
     let errors = []
-
     // Check required fields
     if (!params.lastname || !params.firstname || !params.birthdate || !params.gender || !params.email || !params.emailConfirmation || !params.password || !params.passwordConfirmation) {
       errors.push('Veuillez renseigner tous les champs')
+    }
+
+    // check lastname format
+    const regexString = /^[a-zA-Z]+$/
+    if (!regexString.test(params.lastname)) {
+      errors.push('Veuillez n\'utiliser que des lettres pour votre nom')
+    }
+
+    // check firstname format
+    if (!regexString.test(params.firstname)) {
+      errors.push('Veuillez n\'utiliser que des lettres pour votre prénom')
     }
 
     // Check date format
@@ -37,7 +45,7 @@ module.exports = {
     }
 
     // Check password format
-    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&#])[A-Za-z\d@$!%?&#]{8,}$/ 
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&#.])[A-Za-z\d@$!%?&#.]{8,}$/ 
     if (!regexPassword.test(params.password)) {
       errors.push('Le mot de passe doit contenir au minimum 8 caractères, 1 minuscule, 1 majuscule, 1 caractère spécial et 1 chiffre')
     }

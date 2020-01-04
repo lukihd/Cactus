@@ -1,0 +1,41 @@
+<div class="container text-center">
+  <div class="mt-5 mb-4">
+    <img class="mb-4" src="/images/logo.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Ici tu peux retrouver toutes<br class="mb-1">les informations sur ton compte.</h1>
+  </div>
+  <hr class="mb-5">  
+  <div class="row">
+    <div class="col vrr">
+      <h2 class="h4 font-weight-normal">Tu veux changer tes informations ?</h2>
+      {{> messages}}
+      <form class="form-group mt-4" method="POST" action="/user/modify?_method=PUT">
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" name="lastname" placeholder="Nom">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="firstname" placeholder="Prénom">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <input type="text" class="form-control" name="email" placeholder="Email">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="emailConfirmation" placeholder="Confirmer l'email">
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col">
+            <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+          </div>
+          <div class="col">
+            <input type="password" class="form-control" name="passwordConfirmation" placeholder="Confirmer le mot de passe">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success mt-4">Modifier</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
