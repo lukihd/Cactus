@@ -85,6 +85,11 @@ body {
   font-size: large;
 }
 
+/* USER */
+.user-block {
+  width: 90% !important;
+}
+
 /* CALENDAR */
 
 .center-title{

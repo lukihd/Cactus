@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { ensureAuthenticated } = require('../config/auth')
-const { update, modifyHandler } = require('../models/user')
+const userModel = require('../models/user')
 const User = require('../schema/user')
 
 /* GET users listing. */
@@ -14,7 +14,7 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
 });
 
 router.put('/modify', ensureAuthenticated, (req, res, next) => {
-  errors = modifyHandler(req.body)
+  errors = userModel.modifyHandler(req.body)
   // if an errors is detected then we show an alert and don't send the form
   if (errors.length > 0) {
     res.render('user', {
@@ -24,7 +24,7 @@ router.put('/modify', ensureAuthenticated, (req, res, next) => {
     // check if information stored are same as submited
     User.findOne({email: req.user.email})
       .then((user) => {
-        update(req.user.email, req.body, user)
+        userModel.update(req.user.email, req.body, user)
         .then(() => {
           console.log('hello')
           res.format({
@@ -32,7 +32,7 @@ router.put('/modify', ensureAuthenticated, (req, res, next) => {
               req.flash('success_message', 'Vos informations ont bien été modifiées')
               res.redirect('/user')
             },
-            json: () => {res.status(201).send({message: 'success'})}  
+            json: () => {res.status(201).send({message: 'successful update'})}  
           })
         })
       })
@@ -42,6 +42,17 @@ router.put('/modify', ensureAuthenticated, (req, res, next) => {
     }
 })
 
-router.delete('/delete')
+router.delete('/', ensureAuthenticated,(req, res, next) => {
+  userModel.delete(req.user.email)
+    .then(() => {
+      res.format({
+        html: () => {
+          req.flash('success_message', 'Votre compte a bien été supprimé')
+          res.redirect('/')
+        },
+        json: () => {res.status(201).send({message: 'acount successfuly deleted'})}
+      })
+    })
+})
 
 module.exports = router;
