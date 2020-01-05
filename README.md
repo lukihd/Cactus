@@ -24,15 +24,15 @@ We choose to use MongoDB fot the database due to it's flexibility. In fact it al
 
 ### Authentication
 
-So first of all, you'll can create an account ! That's awesome nobody's never thinking of that above. But we haven't stop there. We also made fully login page !
+So first of all, you'll can create an account ! That's awesome nobody's never thinking about that before. But we haven't stop there. We also made fully login page !
 
 And that's all for authentification, I know you're impressed.
 
 ### Tasks
 
-So now, we get to the heart of the matter. **Tasks**. So what can we exactly can do with this app ? Well, I'll answer to you.
+So now, we get in the heart of the matter. **Tasks**. So what can we exactly can do with this app ? Well, I'll answer to you.
 
-EVERY task you wanted to create. Currently we have five task waiting for implementation. And we need your help for any task you wanted us to add.
+EVERY task you wanted to create can be in it. Currently we have five task waiting for implementation. And we need your help ti add any task you wanted us to create.
 
 Here the exaustive list of all the task planned or implemented :
 
