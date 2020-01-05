@@ -90,6 +90,18 @@ body {
   width: 90% !important;
 }
 
+.user-label {
+  font-size: large;
+}
+
+.user-info-group > h2 {
+  margin-bottom: 5%;
+}
+
+.user-info-group > .row {
+  margin-left: 5%;
+}
+
 /* CALENDAR */
 
 .center-title{

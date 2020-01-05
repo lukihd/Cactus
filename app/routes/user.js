@@ -5,11 +5,14 @@ const User = require('../schema/user')
 
 /* GET users listing. */
 router.get('/', ensureAuthenticated, (req, res, next) => {  
+  console.log(req.user)
   res.render('user', {
     title: 'Cactus Profile',
     layout: 'session',
+    // user informations
     lastname: req.user.lastname,
-    firstname: req.user.firstname
+    firstname: req.user.firstname,
+    email: req.user.email,
   }); 
 });
 
