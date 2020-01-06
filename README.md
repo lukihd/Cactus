@@ -48,7 +48,9 @@ Each task has :
 - an author
 - an importance
 - a status
-- a type (wich you can found above).
+- a type (which you can found above).
+
+You can find [here](/resources/mongo-model.md) to know how the mongodb schema is made.
 
 #### Rendez-vous
 
@@ -69,8 +71,6 @@ Date to date
   from 26/02/2020 to 06/03/2020
 ```
 
-You can find [here](/resources/mongo-model.md) to know how the mongodb schema is made.
-
 #### Event
 
 In the `event` task, you'll be able to make the same things as above in the [rendez-vous](#rendez-vous) section. The difference is that you can't set with who you're doing it.
@@ -83,7 +83,7 @@ You coul'd say this task is useless but not becaus you can specify what you need
 
 We all have this day where you order a new useless object because "you need it". But realy not, and you refresh the delivery page to know when it will be delivered. 
 
-If not no problem. You're a good person.
+If not, no problem. You're a good person.
 
 And whatever you order this task will help you. You can set :
 - delivery date

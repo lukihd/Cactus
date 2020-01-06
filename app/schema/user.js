@@ -6,7 +6,7 @@ let UserSchema = new Schema({
     firstname: {type: String, required: true, max: 100},
     lastname: {type: String, required: true, max: 100},
     gender: {type: String, required: true},
-    birth: {type: Date, required: true},
+    birthdate: {type: Date, required: true},
     email: {type: String, required: true, max: 100},
     password: {type: String, required: true, max: 256},
 });
