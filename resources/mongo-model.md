@@ -114,7 +114,7 @@
     },
     "month": ["String"],      // Select which month
     "week": ["String"],       // Select which week
-    "day":                    // Can be only String or only Number
+    "day": "Mixed"            // Can be only String or only Number
       //["String"]              // Select wich day of week 
       // Or
       //"Number"                // Select day number
@@ -138,7 +138,7 @@
       {                         // Each item is an objectS
         "title": "String",      
         "price": "String",
-        "Quantity": "Number"
+        "quantity": "Number"
       }
     ]
   }
