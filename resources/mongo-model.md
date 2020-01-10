@@ -64,7 +64,7 @@
 ```
 
 ### Delivery
-```bash
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
