@@ -103,7 +103,14 @@
     "Importance": "String"    // low, medium, high, urgent
   },
   "when": {                 // When it happend
-
+    "month": ["String"],      // Select which month
+    "week": ["String"],       // Select which week
+    "day": "Mixed",            // Can be only String or Number
+      //["String"]              // Select wich day of week 
+      // Or
+      //"Number"                // Select day number
+    "hour": "Number",         // Select hour
+    "minute": "Number"        // select minutes
   },
   "properties": {           // Specific properties of the task
     "regular": {              // Regular task (only one can be selected)
@@ -112,12 +119,6 @@
       "weekly": "Boolean",
       "dayly": "Boolean"
     },
-    "month": ["String"],      // Select which month
-    "week": ["String"],       // Select which week
-    "day": "Mixed"            // Can be only String or only Number
-      //["String"]              // Select wich day of week 
-      // Or
-      //"Number"                // Select day number
   }
 }
 ```

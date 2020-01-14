@@ -10,7 +10,7 @@ module.exports = {
         description: {type: String, required: true, max: 256},
         type: {type: String, required: true},
         status: {type: String, required: true},
-        Importance: {type: String, required: true}
+        importance: {type: String, required: true}
       },
       when: {
         period: {
@@ -24,7 +24,7 @@ module.exports = {
       }
     })
     
-    return mongoose.model('rendezVous', rendezVousSchema, 'tasks')
+    return mongoose.model('rendezVous', rendezVousSchema, 'rendezVous')
   },
 
   event: () => {
@@ -35,7 +35,7 @@ module.exports = {
         description: {type: String, required: true},
         type: {type: String, required: true},
         status: {type: String, required: true},
-        Importance: {type: String, required: true}
+        importance: {type: String, required: true}
       },
       when: {
         period: {
@@ -50,7 +50,7 @@ module.exports = {
       }
     })
 
-    return mongoose.model('event', eventSchema, 'tasks')
+    return mongoose.model('event', eventSchema, 'events')
   },
 
   delivery: () => {
@@ -61,7 +61,7 @@ module.exports = {
         description: {type: String, required: true},
         type: {type: String, required: true},
         status: {type: String, required: true},
-        Importance: {type: String, required: true}
+        importance: {type: String, required: true}
       },
       when: {
         period: {
@@ -79,7 +79,37 @@ module.exports = {
       }
     })
 
-    return mongoose.model('delivery', deliverySchema, 'tasks')
+    return mongoose.model('delivery', deliverySchema, 'deliveries')
+  },
+
+  routine: () => {
+    let routineSchema = new Schema({
+      user: {type: String, required: true},
+      global: {
+        title: {type: String, required: true},
+        description: {type: String, required: true},
+        type: {type: String, required: true},
+        status: {type: String, required: true},
+        importance: {type: String, required: true}
+      },
+      when: {
+        month: [String],
+        week: [String],
+        day: {any: Schema.Types.Mixed, required: true},
+        hour: {type: Number},
+        minute: {type: Number}
+      },
+      properties: {
+        regular: {
+          yearly: {type: Boolean, required: true},
+          monthly: {type: Boolean, required: true},
+          weekly: {type: Boolean, required: true},
+          dayly: {type: Boolean, required: true}
+        }
+      }
+    })
+
+    return mongoose.model('routine', routineSchema, 'routines')
   },
 
   shoppingList: () => {
@@ -90,7 +120,7 @@ module.exports = {
         description: {type: String, required: true},
         type: {type: String, required: true},
         status: {type: String, required: true},
-        Importance: {type: String, required: true}
+        importance: {type: String, required: true}
       },
       properties: {
         items: [{
@@ -101,6 +131,6 @@ module.exports = {
       }
     })
 
-    return mongoose.model('shoppingList', shoppingListSchema, 'tasks')
+    return mongoose.model('shoppingList', shoppingListSchema, 'shoppingLists')
   }
 }

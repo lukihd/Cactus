@@ -12,7 +12,7 @@ const passport = require('passport')
 // routes
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
-const calendarRouter = require('./routes/calendar');
+const taskRouter = require('./routes/task');
 
 let app = express();
 
@@ -64,7 +64,7 @@ app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
-app.use('/calendar', calendarRouter)
+app.use('/task', taskRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
