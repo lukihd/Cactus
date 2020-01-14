@@ -1,7 +1,7 @@
 # MongoDB schema modelization
 
 ## User
-```json
+```
 {
   "firstname": "String",
   "lastname": "String",
@@ -15,7 +15,7 @@
 ## Task
 
 ### Rendez-vous
-```json
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
@@ -39,7 +39,7 @@
 ```
 
 ### Event
-```json
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
@@ -64,7 +64,7 @@
 ```
 
 ### Delivery
-```json
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
@@ -92,7 +92,7 @@
 ```
 
 ### Routine
-```json
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
@@ -124,7 +124,7 @@
 ```
 
 ### Shopping list
-```json
+```
 {
   "user": "String",         // User identifier
   "global": {               // Task information
