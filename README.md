@@ -4,16 +4,31 @@
 
 **Cactus** is a group of prejects created by Lukihd. They're all made for assisting people in everyday's tasks simply with a **Raspberry Pi**.
 
-This one is a calendar and task registry, made with Node JS, MongoDB and Redis. All that is possible thanks to **docker-compose**
+This one is a calendar and task registry, made with Node JS, MongoDB. All that is possible thanks to **docker-compose**
 
-## What you need to know about
-
+## Install
 ### Requirement
 
-- Raspberry pi 3B or better
 - Docker
 - docker-compose
 
+### How to
+
+First clone the repository in any folder you like
+Then launch commands bellow
+```bash
+cd cactus/
+docker-compose up -d
+```
+
+To shutdown docker's containers use
+```bash
+docker-compose down
+```
+
+And you need anything more, congratulation !
+
+## What you need to know about
 ### Technologies used
 
 The app is develloped in **NodeJS 13.5** currently and using multiple modules like `mongoose`, `express`, `passport` and many other that you can look in the `package.json` file.
