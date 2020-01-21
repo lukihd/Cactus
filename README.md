@@ -17,7 +17,7 @@ This one is a calendar and task registry, made with Node JS, MongoDB. All that i
 First clone the repository in any folder you like
 Then launch commands bellow
 ```bash
-cd cactus/
+cd Cactus/
 docker-compose up -d
 ```
 
