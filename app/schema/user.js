@@ -1,6 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+/**
+ * Create a Mongoose schema for the user's model
+ */
 let UserSchema = new Schema({
     // user information
     firstname: {type: String, required: true,lowercase: true, max: 100},

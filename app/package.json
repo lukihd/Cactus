@@ -23,7 +23,6 @@
     "node-pre-gyp": "^0.14.0",
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "redis": "^2.8.0"
+    "passport-local": "^1.0.0"
   }
 }
