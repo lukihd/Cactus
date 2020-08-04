@@ -1,5 +1,5 @@
 {
-  "name": "cactus-calendar",
+  "name": "cactus",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,11 +7,9 @@
     "debug": "nodemon ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^3.0.7",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
@@ -21,8 +19,15 @@
     "mongoose": "^5.7.8",
     "morgan": "~1.9.1",
     "node-pre-gyp": "^0.14.0",
-    "nodemon": "^1.19.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "bcrypt": ">=5.0.0",
+    "debug": "~2.6.9",
+    "dot-prop": ">=5.1.1",
+    "kind-of": ">=6.0.3",
+    "minimist": ">=0.2.1",
+    "nodemon": "^1.19.4"
   }
 }
