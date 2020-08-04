@@ -5,13 +5,13 @@ EXPOSE 80 443
 # directory where command are launched
 WORKDIR /app
 # install app for node modules
-RUN apk add python3 make g++
+RUN apk add python3 make g++ yarn
 # copy package*.json to container for installing modules before app is copied 
-COPY ./package*.json /app/
+COPY ./package.json yarn.lock /app/
 # install package register in package*.json
-RUN npm install
+RUN yarn
 # copy full app
 COPY . /app/
 # launch app with nodemon on debug mode 
-ENTRYPOINT [ "npm" ]
+ENTRYPOINT [ "yarn" ]
 CMD [ "run", "debug" ]
