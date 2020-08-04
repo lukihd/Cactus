@@ -3,7 +3,7 @@ const passport = require('passport')
 let User = require('../schema/user')
 let Signup = require('../models/signup')
 let SignupHandling = require('../models/utils/signupHandling')
-let { ensureUnauthenticated } = require('../config/auth')
+let { ensureUnauthenticated } = require('../models/authCheck')
 
 /* GET signin */
 router.get('/', ensureUnauthenticated, (req, res, next) => {

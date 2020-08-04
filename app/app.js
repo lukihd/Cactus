@@ -17,7 +17,7 @@ const taskRouter = require('./routes/task');
 let app = express();
 
 // passport config
-require('./config/passport')(passport)
+require('./models/passport')(passport)
 
 // mongoose connection
 mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true, useUnifiedTopology: true})
