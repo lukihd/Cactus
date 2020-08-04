@@ -1,11 +1,11 @@
-# import alpine with node 12.13.*
-FROM node:13.5-alpine
+# import alpine 3.12 with node 14.7
+FROM node:14.7-alpine3.12
 # expose ports 80 http and 443 https
 EXPOSE 80 443
 # directory where command are launched
 WORKDIR /app
 # install app for node modules
-RUN apk add python make g++
+RUN apk add python3 make g++
 # copy package*.json to container for installing modules before app is copied 
 COPY ./package*.json /app/
 # install package register in package*.json
