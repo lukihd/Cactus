@@ -1,0 +1,68 @@
+extends layouts/layout.pug
+
+block content
+  form(id="signup-form-signup" class="text-center mt-5" method="POST" action="")
+    
+    // title
+    img(class="mb-4" src="/images/logo.svg" alt="" width="72" height="72")
+    h1(class="h3 mb-5 font-weight-normal") Heureux que vous nous ayez choisis !
+
+    // Display errors
+    if errorMessage
+      each err in errorMessage
+        div(class="alert alert-warning alert-dismissible fade show text-left" role="alert")= err
+          button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+            span(aria-hidden="true") &times;
+    hr
+    
+    // form params
+    div(class="signup-form-inline")
+      // Lastname
+      div(class="signup-group-input-left form-group form-group-signup text-left")
+        label(for="signup-input-lastname") Nom
+        input(type="text" name="lastname" id="signup-input-lastname" class="form-control" value=lastname required autofocus)
+
+      // Firstname
+      div(class="signup-group-input-right form-group form-group-signup text-left")
+        label(for="signup-input-firstname") Prénom
+        input(type="text" name="firstname" id="signup-input-firstname" class="form-control" value=firstname required)
+
+    div(class="signup-form-inline")
+      // Birthdate
+      div(class="signup-group-input-left form-group form-group-signup text-left")
+        label(for="signup-input-birthdate") Date de naissance
+        input(type="date" name="birthdate" id="signup-input-birthdate" class="form-control" value=birthdate required)
+
+      // Gender
+      div(class="signup-group-input-right form-group form-group-signup text-left")
+        label(for="signup-input-gender") Civilité
+        select(name="gender" id="signup-input-gender" class="custom-select form-control" required)
+          option Sélectionez une option
+          option(value="woman") Madame
+          option(value="man") Monsieur
+
+    div(class="signup-form-inline")
+      // Email
+      div(class="signup-group-input-left form-group form-group-signup text-left")
+        label(for="signup-input-email") Email
+        input(type="email" name="email" id="signup-input-email" class="form-control" value=email required)   
+
+      // Confirmation
+      div(class="signup-group-input-right form-group form-group-signup text-left")
+        label(for="signup-input-email-confirmation") Confirmez l'adresse email
+        input(type="email" name="emailConfirmation" id="signup-input-email-confirmation" class="form-control" value=emailConfirmation required)
+
+    div(class="signup-form-inline")
+      // Password
+      div(class="signup-group-input-left form-group text-left")
+        label(for="signup-input-password") Mot de passe
+        input(type="password" name="password" id="signup-input-password" class="form-control" required)
+
+      // Confirmation
+      div(class="signup-group-input-right form-group text-left")
+        label(for="signup-input-password-confirmation") Confirmez le mot de passe
+        input(type="password" name="passwordConfirmation" id="signup-input-password-confirmation" class="form-control" required)
+
+    hr(class="mb-4")
+    a(name="Se connecter" id="signin" class="btn btn-lg" href="/" role="button") Se connecter
+    button(type="submit" id="signup-btn-signup" class="btn btn-success btn-lg") S'inscrire

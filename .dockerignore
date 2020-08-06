@@ -1,7 +1,6 @@
 # general
 docker-compose.yml
 README.md
-
-# node app
-app/node_modules/
-app/Dockerfile
+resources/
+.git
+.gitignore

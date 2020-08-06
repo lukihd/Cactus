@@ -1,0 +1,31 @@
+extends layouts/layout.pug
+block content
+  form(id="home-form-signin" class="text-center mt-5" method="POST" action="")
+    // title
+    img(class="mb-4" src="/images/logo.svg" alt="" width="72" height="72")
+    h1(class="h3 mb-3 font-weight-normal") Content de vous revoir
+    h1(class="h3 mb-1 font-weight-normal") parmis nous !
+
+    // Display success messages
+    if successMessage
+      each msg in successMessage
+        div(class="alert alert-success alert-dismissible fade show text-left" role="alert")= msg
+          button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+            span(aria-hidden="true") &times;
+
+    // Display error messages
+    if errorMessage
+      each msg in errorMessage
+        div(class="alert alert-warning alert-dismissible fade show text-left" role="alert")= msg
+          button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+            span(aria-hidden="true") &times;
+
+    // form params
+    label(for="home-input-email" class="sr-only") Adresse email
+    input(type="email" name="email" id="home-input-email" class="form-control" placeholder="Adresse mail" required autofocus)
+    label(for="home-input-password" class="sr-only") Mot de passe
+    input(type="password" name="password" id="home-input-password" class="form-control text-lg" placeholder="Mot de passe" required)
+    hr
+    a(name="S'inscrire" id="signup" class="btn btn-lg" href="/signup" role="button") S'inscrire
+    button(type="submit" id="home-btn-signin" class="btn btn-success btn-lg") Se connecter
+

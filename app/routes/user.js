@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { ensureAuthenticated } = require('../config/auth')
+const { ensureAuthenticated } = require('../models/authCheck')
 const userModel = require('../models/user')
 const User = require('../schema/user')
 
 /* GET users listing. */
 router.get('/', ensureAuthenticated, (req, res, next) => {  
-  console.log(req.user)
   res.render('user', {
     title: 'Cactus Profile',
     layout: 'session',
@@ -17,11 +16,11 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
 });
 
 router.put('/modify', ensureAuthenticated, (req, res, next) => {
-  errors = userModel.modifyHandler(req.body)
+  errorMessage = userModel.modifyHandler(req.body)
   // if an errors is detected then we show an alert and don't send the form
-  if (errors.length > 0) {
+  if (errorMessage.length > 0) {
     res.render('user', {
-      errors
+      errorMessage
     })
   } else {
     // check if information stored are same as submited
@@ -32,10 +31,10 @@ router.put('/modify', ensureAuthenticated, (req, res, next) => {
           console.log('hello')
           res.format({
             html: () => {
-              req.flash('success_message', 'Vos informations ont bien été modifiées')
+              req.flash('successMessage', 'Vos informations ont bien été modifiées')
               res.redirect('/user')
             },
-            json: () => {res.status(201).send({message: 'successful update'})}  
+            json: () => {res.status(200).send({message: 'successful update'})}  
           })
         })
       })
@@ -50,10 +49,10 @@ router.delete('/', ensureAuthenticated,(req, res, next) => {
     .then(() => {
       res.format({
         html: () => {
-          req.flash('success_message', 'Votre compte a bien été supprimé')
+          req.flash('successMessage', 'Votre compte a bien été supprimé')
           res.redirect('/')
         },
-        json: () => {res.status(201).send({message: 'acount successfuly deleted'})}
+        json: () => {res.status(200).send({message: 'acount successfuly deleted'})}
       })
     })
 })

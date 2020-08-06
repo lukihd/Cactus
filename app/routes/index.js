@@ -7,7 +7,11 @@ let { ensureUnauthenticated } = require('../models/authCheck')
 
 /* GET signin */
 router.get('/', ensureUnauthenticated, (req, res, next) => {
-  res.render('index', { title: 'Cactus Home'});
+  res.render('index', { 
+    title: 'Cactus Home',
+    errorMessage: req.flash("errorMessage"),
+    successMessage: req.flash("successMessage")
+  });
 });
 
 /* POST signin */
@@ -28,13 +32,12 @@ router.get('/signup', ensureUnauthenticated, function(req, res, next) {
 router.post('/signup', ensureUnauthenticated, (req, res, next) => {
 
   let {lastname, firstname, birthdate, gender, email, emailConfirmation} = req.body
-
-  // handling form errors
-  errors = SignupHandling.signupHandler(req.body)
-  if (errors.length > 0) {
+  // handling form signup errors
+  errorMessage = SignupHandling.signupHandler(req.body)
+  if (errorMessage.length > 0) {
     // if an errors is detected then we show an alert and don't send the form
     res.render('signup', {
-      errors,
+      errorMessage,
       lastname,
       firstname,
       birthdate,
@@ -48,9 +51,9 @@ router.post('/signup', ensureUnauthenticated, (req, res, next) => {
       .then(user => {
         if (user) {
           // email exist
-          errors.push('Un compte est déjà associé à cette adresse email')
+          errorMessage.push('Un compte est déjà associé à cette adresse email')
           res.render('signup', {
-            errors,
+            errorMessage,
             lastname,
             firstname,
             birthdate,
@@ -64,16 +67,19 @@ router.post('/signup', ensureUnauthenticated, (req, res, next) => {
           .then(() => {
             res.format({
               html: () => {
-                req.flash('success_message', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
+                req.flash('successMessage', 'Vous êtes inscrit ! Vous pouvez maintenant vous connecter')
                 res.redirect('/')
               },
               json: () => {res.status(201).send({message: 'success'})}  
             })
-          })
+          })  
           .catch((err) => {
             console.log(err)
           })
         }
+      })
+      .catch((err)=>{
+        console.log(err)
       })
   }
 })
@@ -81,7 +87,7 @@ router.post('/signup', ensureUnauthenticated, (req, res, next) => {
 /* GET signout */
 router.get('/signout', (req, res) => {
   req.logout()
-  req.flash('sucess_message', 'Vous êtes bien déconnecté')
+  req.flash('successMessage', 'Vous êtes bien déconnecté')
   res.redirect('/')
 })
 

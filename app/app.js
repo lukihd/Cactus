@@ -20,7 +20,7 @@ let app = express();
 require('./models/passport')(passport)
 
 // mongoose connection
-mongoose.connect("mongodb://mongo:27017/cactus-calendar", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect("mongodb://mongo:27017/cactus", {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log("Connection to mongodb established"))
   .catch((err) => console.log("Error : " + err));
 mongoose.set('useFindAndModify', false);
@@ -51,8 +51,11 @@ app.use((req, res, next) => {
 })
 
 // view engine setup
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
-app.set('view engine', 'hbs');
+// app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+// app.set('view engine', 'hbs');
+
+app.set('view engine', 'pug');
+app.set("views", path.join(__dirname, "views"));
 
 app.use(logger('dev'));
 app.use(express.json());
